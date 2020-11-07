@@ -23,6 +23,11 @@ public class Jungle {
         Hyena gul = new Hyena("Gul");
         gul.printHyena();
 
+        Cat marusya = new BritishCat();
+
+        System.out.println("marusya.getBreed() = " + marusya.getBreed());
+        marusya.sayMeow();
+
 
     }
 }
