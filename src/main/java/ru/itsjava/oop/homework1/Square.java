@@ -15,4 +15,9 @@ public class Square extends Figure{
     public double getPerimeter() {
         return side*4;
     }
+
+    @Override
+    public String toString() {
+        return "{Side : " + side + "}";
+    }
 }

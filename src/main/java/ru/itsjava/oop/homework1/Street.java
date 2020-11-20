@@ -29,6 +29,13 @@ public class Street {
         System.out.println(s.getArea());
         System.out.println(s.getPerimeter());
 
+
+        System.out.println("s.toString() = " + s.toString());
+        System.out.println("ss.toString() = " + ss.toString());
+        System.out.println("sss.toString() = " + sss.toString());
+
+        Figure dd = new Rectangle(2,4);
+        System.out.println("dd.equals(ss) = " + dd.equals(ss));
     }
 
 

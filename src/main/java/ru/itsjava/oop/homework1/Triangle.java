@@ -28,4 +28,9 @@ public class Triangle extends Figure{
             return side1+side2+side3;
         }
     }
+
+    @Override
+    public String toString() {
+        return "{Side 1: " + side1 + " Side 2: " + side2 + " Side 3: " + side3 +"}";
+    }
 }
