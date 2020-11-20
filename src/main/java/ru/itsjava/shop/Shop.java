@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Shop {
     public static void main(String[] args) {
-        Goods peanuts = new Goods("Грецкий");
-        Goods hazelnuts = new Goods("Лесной");
-        Goods walnuts = new Goods("Арахис");
+        Goods peanuts = new Goods("Грецкий", 3);
+        Goods hazelnuts = new Goods("Лесной",2);
+        Goods walnuts = new Goods("Арахис",1);
 
         Goods[] items = new Goods[]{peanuts, hazelnuts, walnuts};
         Scanner console = new Scanner(System.in);

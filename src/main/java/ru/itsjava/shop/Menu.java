@@ -15,18 +15,19 @@ public class Menu {
     }
     public static void printAllNuts(Goods[] goods) {
         for (Goods good : goods) {
-            System.out.print(good.getView() + " ");
+            System.out.print(good.toString() + " | ");
         }
         System.out.println();
     }
     public static Goods[] addNut(Goods[] goods, Scanner console) {
-        System.out.println("Введите новый орех: ");
+        System.out.println("Введите новый орех и его цену: ");
         String inputNut = console.next();
+        int cost = console.nextInt();
         Goods[] resNutsArray = new Goods[goods.length + 1];
         for (int i = 0; i < goods.length; i++) {
             resNutsArray[i] = goods[i];
         }
-        Goods nextGoods = new Goods(inputNut);
+        Goods nextGoods = new Goods(inputNut,cost);
         resNutsArray[goods.length] = nextGoods;
         return resNutsArray;
     }
