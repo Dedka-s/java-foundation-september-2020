@@ -3,6 +3,15 @@ package ru.itsjava.shop;
 import java.util.Scanner;
 
 public class Menu {
+
+    public void start() {
+        System.out.println("старт");
+    }
+
+
+
+
+
     public static void printMenu() {
         System.out.println("//Меню:\n" +
                 "//1. Посмотерть все орехи\n" +
@@ -27,8 +36,7 @@ public class Menu {
         for (int i = 0; i < goods.length; i++) {
             resNutsArray[i] = goods[i];
         }
-        Goods nextGoods = new Goods(inputNut,cost);
-        resNutsArray[goods.length] = nextGoods;
+        resNutsArray[goods.length] =  new Goods(inputNut,cost);
         return resNutsArray;
     }
     public static int checkAvailabilityNut(Goods[] items, String inputNut) {
