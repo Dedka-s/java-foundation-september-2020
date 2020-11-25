@@ -3,9 +3,9 @@ package ru.itsjava.shop;
 import java.util.Scanner;
 
 public class Menu {
-    Goods peanuts = new Goods("Грецкий");
-    Goods hazelnuts = new Goods("Лесной");
-    Goods walnuts = new Goods("Арахис");
+    Goods peanuts = new Goods("Грецкий", 3);
+    Goods hazelnuts = new Goods("Лесной",4);
+    Goods walnuts = new Goods("Арахис",2);
 
     Goods[] items = new Goods[]{peanuts, hazelnuts, walnuts};
 
@@ -41,28 +41,29 @@ public class Menu {
                 "//2. Добавить орех\n" +
                 "//3. Просыпать, удалить\n" +
                 "//4. Отсортировать по алфавиту\n" +
-                "//5. Проверить наличие ореха\n" +
-                "//6. Замена ореха на другой\n" +
                 "//0. Выход");
     }
-    public static void printAllNuts(Goods[] goods) {
+
+    public void printAllNuts(Goods[] goods) {
         for (Goods good : goods) {
-            System.out.print(good.getView() + " ");
+            System.out.print(good.toString() + " ");
         }
         System.out.println();
     }
 
     public Goods[] addNut(Goods[] goods, Scanner console) {
-        System.out.println("Введите новый орех: ");
+        System.out.println("Введите новый орех и его цену: ");
         String inputNut = console.next();
+        int cost = console.nextInt();
         Goods[] resNutsArray = new Goods[goods.length + 1];
         for (int i = 0; i < goods.length; i++) {
             resNutsArray[i] = goods[i];
         }
-        resNutsArray[goods.length] = new Goods(inputNut);
+        resNutsArray[goods.length] = new Goods(inputNut, cost);
         return resNutsArray;
     }
-    public static int checkAvailabilityNut(Goods[] items, String inputNut) {
+
+    public int checkAvailabilityNut(Goods[] items, String inputNut) {
 
         for (int i = 0; i < items.length; i++) {
             if (items[i].getView().equalsIgnoreCase(inputNut)) {
@@ -71,7 +72,8 @@ public class Menu {
         }
         return -1;
     }
-    public static Goods[] deleteNut(Goods[] goods, Scanner console) {
+
+    public Goods[] deleteNut(Goods[] goods, Scanner console) {
         System.out.println("Введите орех который нужно удалить: ");
         String inputNut = console.next();
         int placeOfNut = checkAvailabilityNut(goods, inputNut);
@@ -90,15 +92,15 @@ public class Menu {
         }
     }
 
-    public static void mergeSort(Goods[] array, int left, int right) {
+    public void mergeSort(Goods[] array, int left, int right) {
         if (right <= left) return;
-        int mid = (left+right)/2;
+        int mid = (left + right) / 2;
         mergeSort(array, left, mid);
-        mergeSort(array, mid+1, right);
+        mergeSort(array, mid + 1, right);
         merge(array, left, mid, right);
     }
 
-    public static void merge(Goods[] array, int left, int mid, int right) {
+    public void merge(Goods[] array, int left, int mid, int right) {
         // вычисляем длину
         int lengthLeft = mid - left + 1;
         int lengthRight = right - mid;
@@ -109,9 +111,9 @@ public class Menu {
 
         // копируем отсортированные массивы во временные
         for (int i = 0; i < lengthLeft; i++)
-            leftArray[i] = array[left+i];
+            leftArray[i] = array[left + i];
         for (int i = 0; i < lengthRight; i++)
-            rightArray[i] = array[mid+i+1];
+            rightArray[i] = array[mid + i + 1];
 
         // итераторы содержат текущий индекс временного подмассива
         int leftIndex = 0;
@@ -124,8 +126,7 @@ public class Menu {
                 if (leftArray[leftIndex].getView().charAt(0) < rightArray[rightIndex].getView().charAt(0)) {
                     array[i] = leftArray[leftIndex];
                     leftIndex++;
-                }
-                else {
+                } else {
                     array[i] = rightArray[rightIndex];
                     rightIndex++;
                 }
