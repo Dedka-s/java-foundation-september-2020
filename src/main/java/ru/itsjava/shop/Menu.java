@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class Menu {
 
     public void start() {
-        System.out.println("старт");
+        System.out.println("старт123");
+        System.out.println("check");
     }
 
 
