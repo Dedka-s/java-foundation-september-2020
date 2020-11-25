@@ -3,17 +3,39 @@ package ru.itsjava.shop;
 import java.util.Scanner;
 
 public class Menu {
+    Goods peanuts = new Goods("Грецкий");
+    Goods hazelnuts = new Goods("Лесной");
+    Goods walnuts = new Goods("Арахис");
 
-    public void start() {
-        System.out.println("старт123");
-        System.out.println("check");
+    Goods[] items = new Goods[]{peanuts, hazelnuts, walnuts};
+
+
+    public void startShop() {
+        Scanner console = new Scanner(System.in);
+        printMenu();
+
+        while (true) {
+            System.out.println("Введи номер меню: ");
+                int menuNum = console.nextInt();
+                if (menuNum == 1) {
+                    printAllNuts(items);
+                } else if (menuNum == 2) {
+                    items = addNut(items, console);
+                } else if (menuNum == 3) {
+                    items = deleteNut(items, console);
+                } else if (menuNum == 4) {
+                    mergeSort(items, 0, items.length - 1);
+                } else if (menuNum == 0) {
+                    System.out.println("Досвидание");
+                    System.exit(0);
+                } else {
+                    System.out.println("Неправильное число");
+                }
+        }
     }
 
 
-
-
-
-    public static void printMenu() {
+    public void printMenu() {
         System.out.println("//Меню:\n" +
                 "//1. Посмотерть все орехи\n" +
                 "//2. Добавить орех\n" +
@@ -25,19 +47,19 @@ public class Menu {
     }
     public static void printAllNuts(Goods[] goods) {
         for (Goods good : goods) {
-            System.out.print(good.toString() + " | ");
+            System.out.print(good.getView() + " ");
         }
         System.out.println();
     }
-    public static Goods[] addNut(Goods[] goods, Scanner console) {
-        System.out.println("Введите новый орех и его цену: ");
+
+    public Goods[] addNut(Goods[] goods, Scanner console) {
+        System.out.println("Введите новый орех: ");
         String inputNut = console.next();
-        int cost = console.nextInt();
         Goods[] resNutsArray = new Goods[goods.length + 1];
         for (int i = 0; i < goods.length; i++) {
             resNutsArray[i] = goods[i];
         }
-        resNutsArray[goods.length] =  new Goods(inputNut,cost);
+        resNutsArray[goods.length] = new Goods(inputNut);
         return resNutsArray;
     }
     public static int checkAvailabilityNut(Goods[] items, String inputNut) {

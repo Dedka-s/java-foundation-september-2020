@@ -6,13 +6,17 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Goods {
-    private String view;
     private int cost;
+    private String manufacturer;
+    private String view;
 
-
-    @Override
-    public String toString() {
-        return "{view = " + view + " cost = " + cost + "}";
+    public Goods(String view) {
+        this.view = view;
+        this.cost = 1;
+        this.manufacturer = "Russia";
     }
+
+
+
 
 }
