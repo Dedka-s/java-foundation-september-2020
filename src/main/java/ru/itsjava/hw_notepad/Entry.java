@@ -1,4 +1,4 @@
-package ru.itsjava.HWNotepad;
+package ru.itsjava.hw_notepad;
 
 import lombok.Data;
 

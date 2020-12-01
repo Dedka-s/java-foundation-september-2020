@@ -1,4 +1,4 @@
-package ru.itsjava.HWNotepad;
+package ru.itsjava.hw_notepad;
 
 import lombok.Data;
 
@@ -19,65 +19,39 @@ public class Notepad {
         renumber();
     }
 
-    public void startNotepad() {
-        Scanner console = new Scanner(System.in);
-        printMenu();
 
-        while (true) {
-            System.out.println("Введи номер меню: ");
-            int menuNum = console.nextInt();
-            if (menuNum == 1) {
-                show();
-            } else if (menuNum == 2) {
-               addRecord();
-            } else if (menuNum == 3) {
-                deleteRecord();
-            } else if (menuNum == 4) {
-                editRecord();
-            } else if (menuNum == 0) {
-                System.out.println("Досвидание");
-                System.exit(0);
-            } else {
-                System.out.println("Неправильное число");
-            }
-        }
-    }
-
-    private void printMenu() {
-        System.out.println("//Меню:\n" +
-                "//1. Посмотерть все записи\n" +
-                "//2. Добавить запись\n" +
-                "//3. Удалить запись\n" +
-                "//4. Отредактировать запись\n" +
-                "//0. Выход");
-    }
-
-    private void renumber () {
+    public void renumber () {
         for (int i = 0; i < this.notepad.length; i++) {
             String s = (i + 1) +  ".";
             this.notepad[i] = new Entry(s);
         }
     }
 
-    private void show () {
+    public void show () {
         for (Entry entry:notepad) {
             System.out.println(entry.getNumber() + " " + entry.getMessage());
         }
     }
 
-    private void addRecord () {
+    public void addRecord () {
         Scanner console = new Scanner(System.in);
-        for (int i = 0; i < this.notepad.length; i++) {
-            if (this.notepad[i].getMessage().equals(" ")) {
-                System.out.println("Введите новую запись");
-                String record = console.next();
-                this.notepad[i].setMessage(record);
-                break;
+        if (this.notepad[this.notepad.length-1].getMessage().equals(" ")) {
+            for (int i = 0; i < this.notepad.length; i++) {
+                if (this.notepad[i].getMessage().equals(" ")) {
+                    System.out.println("Введите новую запись");
+                    String record = console.next();
+                    this.notepad[i].setMessage(record);
+                    break;
+                }
             }
+        } else {
+            System.out.println("Блокнот заплнен, для записи нет места");
         }
+
+
     }
 
-    private void deleteRecord () {
+    public void deleteRecord () {
         Scanner console = new Scanner(System.in);
         System.out.println("Введите номер записи которую вы хотите удалить");
         int record = console.nextInt();
@@ -98,7 +72,7 @@ public class Notepad {
 
     }
 
-    private void editRecord () {
+    public void editRecord () {
         Scanner console = new Scanner(System.in);
         System.out.println("Введите номер записи которую вы хотите отредактировать");
         int record = console.nextInt();
