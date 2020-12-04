@@ -2,7 +2,7 @@ package ru.itsjava.object;
 
 public class TelephoneShop {
     public static void main(String[] args) {
-        Telephone vitPhone = new Telephone("8913823894294", "Iphone", 100);
+        Telephone vitPhone = new Telephone("8913823894294", "Iphone");
         Telephone dashaPhone = new Telephone("899999999", "Nokia", 200);
         Telephone vitPhone2 = new Telephone("8913823894294", "Iphone", 100);
 

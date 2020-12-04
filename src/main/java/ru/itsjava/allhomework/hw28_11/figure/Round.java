@@ -8,12 +8,12 @@ public class Round extends Figure{
 
     @Override
     public double getArea() {
-        return Figure.pi * r * r;
+        return Figure.PI * r * r;
     }
 
     @Override
     public double getPerimeter() {
-        return 2 * Figure.pi * r;
+        return 2 * Figure.PI * r;
     }
 
     @Override
