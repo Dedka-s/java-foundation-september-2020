@@ -1,4 +1,4 @@
-package ru.itsjava.allhomework.hw10_12;
+package ru.itsjava.allhomework.hw10_12starics;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package ru.itsjava.allhomework.hw10_12;
+package ru.itsjava.allhomework.hw10_12starics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,8 +57,7 @@ public class HWCollection {
 
         //а.Индекс делится на 3
         System.out.print("List2:{");
-        for (int i = 0; i < emptyList.size(); i++){
-            if (i%3==0) {
+        for (int i = 3; i < emptyList.size(); i = i + 3){
                 System.out.print(emptyList.get(i));
                 if (i==emptyList.size()-1){
                     System.out.print("}");
@@ -66,7 +65,6 @@ public class HWCollection {
                     break;
                 }
                 System.out.print(";");
-            }
         }
 
         //б.Вернуть количество определенного элемента
@@ -74,19 +72,21 @@ public class HWCollection {
         emptyList.add("str1");
         String str = "str1";
         System.out.print("Содержание " + str + " в List2 = ");
-        int j = 0;
+        int countStr1 = 0;
         for (int i = 0; i < emptyList.size(); i++){
-            if (emptyList.get(i).equals(str)) j++;
+            if (emptyList.get(i).equals(str)) {
+                countStr1++;
+            }
         }
-        System.out.print(j);
+        System.out.print(countStr1);
         System.out.println();
 
         //7.
 
         //а.Пропустить превые 3 элемента
-        int k = 3;
-        System.out.print("List2 пропуская " + k + " значений:{");
-        for (int i = k; i < emptyList.size(); i++){
+        int initialElement = 3;
+        System.out.print("List2 пропуская " + initialElement + " значений:{");
+        for (int i = initialElement; i < emptyList.size(); i++){
             System.out.print(emptyList.get(i));
             if (i==emptyList.size()-1){
                 System.out.print("}");
@@ -199,7 +199,7 @@ public class HWCollection {
         char fname = 'Н';
         for (int i = 0; i < armyList.size(); i++){
 
-            if ( armyList.get(i).isMale() == true && armyList.get(i).getAge() >=18 && armyList.get(i).getAge()<=27 && armyList.get(i).getName().charAt(0) == fname) {
+            if ( armyList.get(i).isMale() && armyList.get(i).getAge() >=18 && armyList.get(i).getAge()<=27 && armyList.get(i).getName().charAt(0) == fname) {
                 System.out.print(armyList.get(i));
                 if (i==armyList.size()-1){
                     System.out.print("}");
