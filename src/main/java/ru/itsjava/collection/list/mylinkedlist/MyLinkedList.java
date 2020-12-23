@@ -20,7 +20,7 @@ public class MyLinkedList {
     }
 
     public boolean contains(Object o) {
-        return indexOf(o) >= 1;
+        return (indexOf(o) >= 0);
     }
 
     public boolean add(Object o) {
@@ -139,7 +139,7 @@ public class MyLinkedList {
     public int indexOf(Object o) {
         int curIndex = 0;
         Node curNode = head;
-        while (!(curNode.getNext()==null)) {
+        while (!(curNode==null)) {
             if (curNode.getValue().equals(o)) {
                 return curIndex;
             }
@@ -153,7 +153,7 @@ public class MyLinkedList {
         int curIndex = 0;
         int lastIndex = -1;
         Node curNode = head;
-        while (!(curNode.getNext()==null)) {
+        while (!(curNode==null)) {
             if (curNode.getValue().equals(o)) {
                 lastIndex = curIndex;
             }

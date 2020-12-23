@@ -111,7 +111,7 @@ public class MyLinkedListTest {
         list.add(DEFAULT_ELEM);
         list.add(DEFAULT_ELEM);
         list.add(1,DEFAULT_ELEM2);
-        Assertions.assertEquals(0, list.indexOf(DEFAULT_ELEM));
+        Assertions.assertEquals(1, list.indexOf(DEFAULT_ELEM2));
     }
 
     @DisplayName(" корректно возвращать индекс последнего появления элемента")
