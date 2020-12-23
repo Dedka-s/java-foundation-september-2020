@@ -23,7 +23,7 @@ public class MyArrayListTest {
     public void shouldHaveCorrectOutputIsEmpty(){
         MyArrayList list = new MyArrayList();
         list.add(DEFAULT_ELEM);
-        Assertions.assertEquals(true, list.isEmpty());
+        Assertions.assertEquals(false, list.isEmpty());
     }
 
     @DisplayName(" корректно давать информацию о наличии в списке конкретного элемента")
