@@ -45,12 +45,13 @@ public class MyLinkedList {
         }
         int curIndex = 0;
         Node curNode = head;
-        while (!(curNode.getNext()==null)) {
+        while (!(curNode==null)) {
             if (curNode.getValue().equals(o)) {
                 remove(curIndex);
                 return true;
             }
             curNode = curNode.getNext();
+            curIndex++;
         }
         return false;
     }
